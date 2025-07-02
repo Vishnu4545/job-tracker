@@ -1,7 +1,6 @@
 from fastapi import FastAPI
+from app.routes import job_routes
 
 app = FastAPI()
 
-@app.get("/")
-def read_root():
-    return {"message": "Job Tracker API is Live!"}
+app.include_router(job_routes.router)
